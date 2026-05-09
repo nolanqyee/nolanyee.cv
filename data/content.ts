@@ -211,23 +211,6 @@ A full software emulation of an ARM processor written in C — supporting ARM as
     pinned: true,
     meta: { category: "projects", tags: ["systems", "architecture"] },
   },
-  {
-    id: "projects/studytrackr.md",
-    path: "/projects/studytrackr.md",
-    title: "StudyTrackr",
-    short: "React productivity suite with real-time time tracking and progress dashboards",
-    body: `# StudyTrackr
-**Stack:** React, JavaScript, LocalStorage
-
-A React productivity suite with real-time time tracking and progress dashboards for 50+ active users — built with hooks and LocalStorage for state persistence, with a 78% increase in task completion after UX iteration.
-
-https://nolanqyee.github.io/studytrackr/`,
-    renderType: "markdown",
-    externalUrl: "https://nolanqyee.github.io/studytrackr/",
-    pinned: false,
-    meta: { category: "projects", tags: ["web"] },
-  },
-
   // ── Education ─────────────────────────────────────────────
   {
     id: "education/ut-austin.md",
@@ -322,26 +305,6 @@ Peak rank #2 in National Dex Ubers on Pokémon Showdown with 1900+ Elo — one o
     renderType: "text",
     pinned: true,
     meta: { category: "misc", tags: ["gaming", "competitive"] },
-  },
-  {
-    id: "misc/github.md",
-    path: "/misc/github.md",
-    title: "GitHub",
-    short: "Source code and open-source work",
-    body: `All my open-source code lives here.\n\nRun \`open /misc/github.md\` to view on GitHub.`,
-    renderType: "text",
-    externalUrl: "https://github.com/nolanqyee",
-    meta: { category: "misc", tags: ["code"] },
-  },
-  {
-    id: "misc/linkedin.md",
-    path: "/misc/linkedin.md",
-    title: "LinkedIn",
-    short: "Professional profile",
-    body: `Connect with me on LinkedIn.\n\nRun \`open /misc/linkedin.md\` to open profile.`,
-    renderType: "text",
-    externalUrl: "https://linkedin.com/in/nolanqyee",
-    meta: { category: "misc", tags: ["professional"] },
   },
 ];
 

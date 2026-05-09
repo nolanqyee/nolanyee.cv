@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Nolan Yee",
+    title: "Nolan Yee's Personal Portfolio",
     description:
         "CS @ UT Austin. Building full-stack applications and AI tools. Founder of Bubble.",
     keywords: [
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_US",
         url: "https://nolanyee.cv",
-        title: "Nolan Yee - Full-Stack Developer & CS Student",
+        title: "Nolan Yee's Personal Portfolio",
         description:
             "Building full-stack applications, AI tools, and founding startups.",
-        siteName: "Nolan Yee",
+        siteName: "Nolan Yee's Personal Portfolio",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Nolan Yee",
+        title: "Nolan Yee's Personal Portfolio",
         description: "Full-stack developer, AI enthusiast & startup founder",
     },
     robots: "index, follow",
