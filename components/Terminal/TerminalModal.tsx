@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Terminal from "./Terminal";
 import { siteConfig } from "@/data/content";
 
@@ -9,7 +9,7 @@ const CHROME = {
   barBorder: "#334155",
   termBg:    "#0F172A",
   dim:       "#94A3B8",
-} as const;
+};
 
 const ENTER_DURATION_MS = 320;
 
@@ -22,6 +22,7 @@ interface TerminalModalProps {
   onVisibilityChange?: (visible: boolean) => void;
   onPhotoOpen?: () => void;
   isPhotoOpen?: boolean;
+  isMobile?: boolean;
 }
 
 export default function TerminalModal({
@@ -30,12 +31,45 @@ export default function TerminalModal({
   onVisibilityChange,
   onPhotoOpen,
   isPhotoOpen,
+  isMobile = false,
 }: TerminalModalProps) {
   const [state, setState]         = useState<ModalState>("open");
-  const [showState, setShowState] = useState<ShowState>("visible"); // visible on initial load
+  const [showState, setShowState] = useState<ShowState>("visible");
   const [cwd, setCwd]             = useState("/");
 
-  const enterTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const enterTimerRef       = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const autoClosedForMobile = useRef(false);
+
+  useEffect(() => {
+    if (isMobile) {
+      // Going mobile: auto-close if open, and remember it was auto-closed
+      setState((s) => {
+        if (s === "open" || s === "fullscreen") {
+          if (enterTimerRef.current) {
+            clearTimeout(enterTimerRef.current);
+            enterTimerRef.current = null;
+          }
+          setShowState("hidden");
+          autoClosedForMobile.current = true;
+          return "closed";
+        }
+        return s;
+      });
+    } else if (autoClosedForMobile.current) {
+      // Returning to desktop after auto-close: reopen with entrance animation
+      autoClosedForMobile.current = false;
+      onVisibilityChange?.(true);
+      setState("open");
+      requestAnimationFrame(() => {
+        setShowState("entering");
+        if (enterTimerRef.current) clearTimeout(enterTimerRef.current);
+        enterTimerRef.current = setTimeout(
+          () => setShowState("visible"),
+          ENTER_DURATION_MS,
+        );
+      });
+    }
+  }, [isMobile]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const cwdDisplay = cwd === "/" ? "~" : `~${cwd}`;
   const title = `${siteConfig.terminalUser}@${siteConfig.terminalDomain} ${cwdDisplay}`;
@@ -89,6 +123,7 @@ export default function TerminalModal({
   }
 
   const isFullscreen = state === "fullscreen";
+  const isMobileOpen = isMobile && state === "open";
 
   const FS_TRANSITION =
     "top 300ms cubic-bezier(0.22,1,0.36,1), left 300ms cubic-bezier(0.22,1,0.36,1), right 300ms cubic-bezier(0.22,1,0.36,1), bottom 300ms cubic-bezier(0.22,1,0.36,1), border-radius 300ms cubic-bezier(0.22,1,0.36,1), box-shadow 300ms cubic-bezier(0.22,1,0.36,1)";
@@ -100,9 +135,11 @@ export default function TerminalModal({
     flexDirection: "column",
     overflow: "hidden",
     background: CHROME.termBg,
-    border: `1px solid ${CHROME.barBorder}`,
+    border: isMobileOpen ? "none" : `1px solid ${CHROME.barBorder}`,
     transition: FS_TRANSITION,
-    ...(isFullscreen
+    ...(isMobileOpen
+      ? { top: 0, left: 0, right: 0, bottom: 0, borderRadius: 0, boxShadow: "none" }
+      : isFullscreen
       ? { top: "1.5rem", left: "1.5rem", right: "1.5rem", bottom: "1.5rem", borderRadius: "0.75rem", boxShadow: "0 20px 60px rgba(0,0,0,0.5)" }
       : { top: "10vh", left: "50vw", right: "5rem", bottom: "10vh", borderRadius: "0.75rem", boxShadow: "0 20px 60px rgba(0,0,0,0.5)" }),
   };
@@ -148,16 +185,18 @@ export default function TerminalModal({
               </svg>
             </button>
 
-            <button
-              onClick={() => setState((s) => (s === "fullscreen" ? "open" : "fullscreen"))}
-              className="w-3 h-3 rounded-full flex items-center justify-center hover:brightness-110 transition"
-              style={{ background: "#28C840", boxShadow: "0 0 0 0.5px #1AAB29" }}
-              aria-label={state === "fullscreen" ? "Exit fullscreen" : "Enter fullscreen"}
-            >
-              <svg className="w-[6px] h-[6px] opacity-0 group-hover:opacity-100 transition-opacity" viewBox="0 0 12 12" fill="none" stroke="#006500" strokeWidth="1.5">
-                <polyline points="8,1 11,1 11,4" /><polyline points="4,11 1,11 1,8" />
-              </svg>
-            </button>
+            {!isMobile && (
+              <button
+                onClick={() => setState((s) => (s === "fullscreen" ? "open" : "fullscreen"))}
+                className="w-3 h-3 rounded-full flex items-center justify-center hover:brightness-110 transition"
+                style={{ background: "#28C840", boxShadow: "0 0 0 0.5px #1AAB29" }}
+                aria-label={state === "fullscreen" ? "Exit fullscreen" : "Enter fullscreen"}
+              >
+                <svg className="w-[6px] h-[6px] opacity-0 group-hover:opacity-100 transition-opacity" viewBox="0 0 12 12" fill="none" stroke="#006500" strokeWidth="1.5">
+                  <polyline points="8,1 11,1 11,4" /><polyline points="4,11 1,11 1,8" />
+                </svg>
+              </button>
+            )}
           </div>
 
           <span className="ml-2 text-[11px] font-mono truncate" style={{ color: CHROME.dim }}>

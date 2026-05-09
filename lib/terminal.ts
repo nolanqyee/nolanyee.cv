@@ -40,7 +40,6 @@ function isDir(path: string): boolean {
 export type CommandResult =
   | { kind: "text"; text: string }
   | { kind: "markdown"; body: string }
-  | { kind: "visual"; body: string; visualProps: unknown }
   | { kind: "error"; text: string }
   | { kind: "clear" }
   | { kind: "open"; url: string; text: string }
@@ -163,9 +162,6 @@ function cmdCat(arg: string | undefined, cwd: string): CommandResult {
 
   if (node.renderType === "markdown") {
     return { kind: "markdown", body: node.body };
-  }
-  if (node.renderType === "visual") {
-    return { kind: "visual", body: node.body, visualProps: node.visualProps };
   }
   return { kind: "text", text: node.body };
 }

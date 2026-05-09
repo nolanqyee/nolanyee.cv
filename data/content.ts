@@ -9,8 +9,8 @@ export const siteConfig = {
     "I'm a CS student at UT Austin building full-stack applications and AI-powered tools. Since I started college, I've prioritized learning to develop software that solves real problems for people.",
     "Feel free to explore this website, or reach out if you want to build something together.",
   ],
-  terminalUser: "nolan",
-  terminalDomain: "nolanyee.dev",
+  terminalUser: "user",
+  terminalDomain: "nolanyee.cv",
   social: {
     github: "https://github.com/nolanqyee",
     linkedin: "https://linkedin.com/in/nolanqyee",
@@ -23,23 +23,7 @@ export const siteConfig = {
 // CONTENT MODEL
 // ============================================================
 
-export type RenderType = "text" | "markdown" | "visual";
-export type VisualVariant = "project" | "experience" | "media";
-
-export interface VisualProps {
-  variant: VisualVariant;
-  imageUrl?: string;
-  liveUrl?: string;
-  repoUrl?: string;
-  tags?: string[];
-  // Experience
-  company?: string;
-  role?: string;
-  period?: string;
-  // Media
-  thumbnailUrl?: string;
-  platform?: "spotify" | "youtube" | "other";
-}
+export type RenderType = "text" | "markdown";
 
 export interface ContentMeta {
   category: string;
@@ -55,7 +39,6 @@ export interface ContentNode {
   short: string;
   body: string;
   renderType: RenderType;
-  visualProps?: VisualProps;
   externalUrl?: string;
   meta: ContentMeta;
   /** If true, this node appears in the portfolio website view */
