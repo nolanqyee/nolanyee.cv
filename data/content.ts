@@ -92,6 +92,21 @@ When I'm not coding, I'm writing songs, playing guitar and piano, or grinding co
 
   // ── Experience ────────────────────────────────────────────
   {
+    id: "experience/abode.md",
+    path: "/experience/abode.md",
+    title: "Abode Money",
+    short: "Re-architected analytics into a unified server-side pipeline, ran conversion A/B tests, and built AI harnesses for county tax-appeal logic",
+    body: `# Abode Money
+Software Engineering Intern · May 2026 – August 2026
+
+At Abode — an Austin startup helping homeowners appeal property taxes — I re-architected fragmented analytics (Mixpanel, Statsig, Hotjar) into a unified server-side pipeline on PostHog, migrating 70,000+ daily events, recovering ~30% of ad-blocked traffic, and enabling the company's first accurate CAC-by-channel view across ~41,000 Stripe customers. I also ran funnel A/B tests that lifted conversion up to 50%, and built AI harnesses that generate and validate county-specific appeal logic — cutting regressions ~80% and new-county setup time ~95%.
+
+https://abodemoney.com`,
+    renderType: "markdown",
+    pinned: true,
+    meta: { category: "experience", date: "2026-05", tags: ["engineering", "ai", "analytics", "startup"] },
+  },
+  {
     id: "experience/bubble.md",
     path: "/experience/bubble.md",
     title: "Bubble",
