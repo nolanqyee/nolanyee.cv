@@ -4,10 +4,11 @@
 
 export const siteConfig = {
   name: "Nolan Yee",
-  tagline: "CS @ UT Austin · Forty Acres Scholar",
+  tagline: "CS @ UT Austin · Incoming SWE Intern @ Figma · Forty Acres Scholar",
   bio: [
-    "I'm a CS student at UT Austin building full-stack applications and AI-powered tools. Since I started college, I've prioritized learning to develop software that solves real problems for people.",
-    "Feel free to explore this website, or reach out if you want to build something together.",
+    "I love building products that solve problems for people.",
+    "I'm a CS student at UT Austin, Forty Acres Scholar, and software engineer with experience across startups and organizations. I enjoy taking ideas from zero to one, whether that means building AI-powered products, shipping polished user experiences, or tackling interesting engineering problems.",
+    "Outside of engineering, I enjoy writing music, exploring new places, and meeting people with ambitious ideas. Feel free to explore this website, or reach out if you want to build something together.",
   ],
   terminalUser: "user",
   terminalDomain: "nolanyee.cv",
@@ -92,6 +93,19 @@ When I'm not coding, I'm writing songs, playing guitar and piano, or grinding co
 
   // ── Experience ────────────────────────────────────────────
   {
+    id: "experience/figma.md",
+    path: "/experience/figma.md",
+    title: "Figma",
+    short: "Incoming Software Engineering Intern · Summer 2027",
+    body: `# Figma
+Incoming Software Engineering Intern · Summer 2027
+
+https://figma.com`,
+    renderType: "markdown",
+    pinned: true,
+    meta: { category: "experience", date: "2027-05", tags: ["engineering"] },
+  },
+  {
     id: "experience/abode.md",
     path: "/experience/abode.md",
     title: "Abode Money",
@@ -105,6 +119,21 @@ https://abodemoney.com`,
     renderType: "markdown",
     pinned: true,
     meta: { category: "experience", date: "2026-05", tags: ["engineering", "ai", "analytics", "startup"] },
+  },
+  {
+    id: "experience/hihowareyou.md",
+    path: "/experience/hihowareyou.md",
+    title: "Hi, How Are You Project",
+    short: "Migrated a mental-health nonprofit's site to Webflow with Claude Code and built its donor analytics pipeline",
+    body: `# Hi, How Are You Project
+Software Engineer · September 2026 – Present
+
+Led an agentic Squarespace → Webflow migration of hihowareyou.org using Claude Code and the Webflow MCP server, rebuilding 19 pages on a token-driven component system. Built a PostHog donor analytics suite with Givebutter and Mailchimp connectors that tracks the visit-to-recurring-donation funnel and auto-routes lapsed donors into outreach emails, and partnered on SEO/AEO with structured data, a zero-404 redirect map, and llms.txt.
+
+https://hihowareyou.org`,
+    renderType: "markdown",
+    pinned: true,
+    meta: { category: "experience", date: "2026-09", tags: ["engineering", "nonprofit", "analytics", "ai"] },
   },
   {
     id: "experience/bubble.md",
