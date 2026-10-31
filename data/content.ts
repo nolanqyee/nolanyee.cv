@@ -111,9 +111,9 @@ https://figma.com`,
     title: "Abode Money",
     short: "Re-architected analytics into a unified server-side pipeline, ran conversion A/B tests, and built AI harnesses for county tax-appeal logic",
     body: `# Abode Money
-Software Engineering Intern · May 2026 – August 2026
+Software Engineering Intern · May 2026 – September 2026
 
-At Abode — an Austin startup helping homeowners appeal property taxes — I re-architected fragmented analytics (Mixpanel, Statsig, Hotjar) into a unified server-side pipeline on PostHog, migrating 70,000+ daily events, recovering ~30% of ad-blocked traffic, and enabling the company's first accurate CAC-by-channel view across ~41,000 Stripe customers. I also ran funnel A/B tests that lifted conversion up to 50%, and built AI harnesses that generate and validate county-specific appeal logic — cutting regressions ~80% and new-county setup time ~95%.
+At Abode — an Austin startup helping homeowners appeal property taxes — I re-architected fragmented analytics (Mixpanel, Statsig, Hotjar) into a unified server-side pipeline on PostHog, migrating 70,000+ daily events, recovering 100% of ad-blocked traffic, and enabling the company's first accurate CAC-by-channel view across ~41,000 Stripe customers. I also ran funnel A/B tests that lifted conversion up to 50%, and built AI harnesses that generate and validate county-specific appeal logic — cutting regressions ~80% and new-county setup time ~95%.
 
 https://abodemoney.com`,
     renderType: "markdown",
@@ -171,9 +171,9 @@ https://github.com/via-team/frontend`,
     title: "Texas Convergent",
     short: "Built Vibecheck, a social media and collaboration app for musicians",
     body: `# Texas Convergent
-Software Engineer · September 2025 – January 2026
+Software Engineer · September 2025 – April 2026
 
-Built Vibecheck, a cross-platform music collaboration app, optimizing feed performance by 40% via infinite-scroll, handling 300+ media uploads through Firebase, and shipping core messaging and workspace features across 12 Agile sprints.
+Built Vibecheck, a cross-platform music collaboration app, optimizing feed performance by 40% via infinite-scroll, handling 3,000+ media uploads through Firebase, and shipping core messaging and workspace features across 12 Agile sprints.
 
 https://github.com/swarit-1/dam-music`,
     renderType: "markdown",
